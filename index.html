@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User</title>
+    <!-- bootstrap css1 js1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- custom css1 js1-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col col-lg-6 mx-auto">
+            <div class="card rounded-0">
+
+                <div class="card-header">
+                    <form id="form" action="">
+                        <div class="form-group">
+                            <input type="text" id="search" class="form-control form-control-sm" placeholder="Search..."
+                                autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+
+                <div id="displayBody" class="card-body">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0PdlHAKHSQX9ObJzYQVW6eeQCOlNVfv1fA&s"
+                        class="rounded-circle" alt="profile" />
+                    <h5 class="card-title">User Name</h5>
+                    <small class="card-subtitle">Bio</small>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">Repositories :
+                            <span class="fw-bold">100</span>
+                        </li>
+                        <li class="list-group-item">Followers :
+                            <span class="fw-bold">100</span>
+                        </li>
+                        <li class="list-group-item">Following :
+                            <span class="fw-bold">100</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div id="displayFooter" class="card-footer">
+                    <div class="dropdown float-end">
+                        <a href="javascript:void(0)" class="btn btn-success btn-sm rounded-0 dropdown-toggle"
+                            data-bs-toggle="dropdown">Repositories</a>
+                        <ul id="displayList" class="dropdown-menu">
+                            <li><a href="javascript:void(0)" class="dropdown-item" target="_blank">Sample Repo</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- bootstrap css1 js1 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- jquery js1 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- axios js1 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- custom css1 js1 -->
+    <script src="js/style.js"></script>
+</body>
+
+</html>
