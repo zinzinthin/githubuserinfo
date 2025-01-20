@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container py-5">
         <div class="col col-lg-6 mx-auto">
             <div class="card rounded-0">
 
@@ -30,13 +30,27 @@
                 <div id="displayBody" class="card-body">
                 </div>
 
-                <div id="displayFooter" class="card-footer">
-                    <div class="dropdown float-end">
-                        <a href="javascript:void(0)" class="btn btn-success btn-sm rounded-0 dropdown-toggle"
-                            data-bs-toggle="dropdown">Repositories Link</a>
-                        <ul id="displayList" class="dropdown-menu">
+                <div id="displayFooter" class="card-footer d-flex justify-content-between">
+                    
+                    <div class="dropdown">
+                        <a href="" class="btn btn-primary btn-sm rounded-3 dropdown-toggle" data-bs-toggle="dropdown">Following</a>
+                        <ul id="displayFollowing" class="dropdown-menu">
                         </ul>
                     </div>
+
+                    <div class="dropdown">
+                        <a href="" class="btn btn-primary btn-sm rounded-3 dropdown-toggle" data-bs-toggle="dropdown">Followers</a>
+                        <ul id="displayFollowers" class="dropdown-menu">
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="btn btn-success btn-sm rounded-3 dropdown-toggle"
+                            data-bs-toggle="dropdown">Repositories Link</a>
+                        <ul id="displayRepoList" class="dropdown-menu">
+                        </ul>
+                    </div>
+                   
                 </div>
 
             </div>

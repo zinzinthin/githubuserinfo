@@ -1,12 +1,13 @@
-body{
+.container{
     height: 100vh;
-    background-color: #f4f4f4;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-height: 100vh;
+    overflow: hidden;
+}
+.card-body img{
+    width : 100px;
 }
 
-.card-body img{
-    width : 120px;
+#displayFooter .dropdown-menu{
+    max-height: 30vh;
+    overflow-y: auto;
 }

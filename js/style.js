@@ -2,7 +2,7 @@ const getform = document.querySelector("#form");
 const getsearch = document.querySelector("#search");
 const displaybody = document.querySelector("#displayBody");
 const displayfooter = document.querySelector("#displayFooter");
-const displaylist = document.querySelector("#displayList");
+const displayrepos = document.querySelector("#displayRepoList");
 
 const url = `https://api.github.com/users/`;
 
@@ -38,7 +38,7 @@ function getresult(username) {
             displaybody.innerHTML = `
         <div class="alert alert-danger text-center">No Data Found !!!</div>
         `;
-            displaylist.innerHTML = `
+            displayrepos.innerHTML = `
         <li class="dropdown-item">No Data</li>
         `;
         }
@@ -49,10 +49,10 @@ function cardData(user) {
     displaybody.innerHTML = `
                     <img src="${user.avatar_url}"
                         class="rounded-circle" alt="profile" />
-                    <h5 class="card-title">${user.name}</h5>
-                    <small class="card-subtitle">${user.bio ?? ''}</small>
+                    <h5 class="card-title my-2">${user.name}</h5>
+                    <small class="card-subtitle my-2">${user.bio ?? ''}</small>
 
-                    <ul class="list-group">
+                    <ul class="list-group my-2">
                         <li class="list-group-item">Repositories :
                             <span class="fw-bold">${user.public_repos}</span>
                         </li>
@@ -76,9 +76,9 @@ function resultrepos(username) {
 }
 
 function showrepositories(repos) {
-    displaylist.innerHTML = "";
+    displayrepos.innerHTML = "";
     repos.forEach(repo => {
         const li = `<li><a href=${repo.html_url} class="dropdown-item" target="_blank">${repo.name}</a></li>`;
-        displaylist.innerHTML += li;
+        displayrepos.innerHTML += li;
     });
 }
