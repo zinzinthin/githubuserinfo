@@ -1,18 +1,18 @@
 const getform = document.querySelector("#form");
 const getsearch = document.querySelector("#search");
-const getdisplaybody = document.querySelector("#displayBody");
-const getdisplayfooter = document.querySelector("#displayFooter");
-const getdisplaylist = document.querySelector("#displayList");
+const displaybody = document.querySelector("#displayBody");
+const displayfooter = document.querySelector("#displayFooter");
+const displaylist = document.querySelector("#displayList");
 
-const uri = `https://api.github.com/users/`;
+const url = `https://api.github.com/users/`;
 
 getform.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const getusername = getsearch.value;
+    const username = getsearch.value;
 
-    if (getusername.trim()) {
-        getresult(getusername);
+    if (username.trim()) {
+        getresult(username);
         getsearch.value = "";
         getsearch.focus();
     } else {
@@ -23,11 +23,62 @@ getform.addEventListener('submit', (e) => {
 //inital user
 getresult('zinzinthin');
 
-function getresult(username){
-   axios({
-    method : "GET",
-    url : uri + username,
-   }).then(response => {
-    console.log(response);
-   }).catch(err => console.log(err));
+function getresult(username) {
+    axios({
+        method: "GET",
+        url: url + username,
+    }).then(response => {
+
+        const { data } = response;
+        cardData(data);
+        resultrepos(username);
+
+    }).catch(err => {
+        if (err.response.status === 404) {
+            displaybody.innerHTML = `
+        <div class="alert alert-danger text-center">No Data Found !!!</div>
+        `;
+            displaylist.innerHTML = `
+        <li class="dropdown-item">No Data</li>
+        `;
+        }
+    });
+}
+
+function cardData(user) {
+    displaybody.innerHTML = `
+                    <img src="${user.avatar_url}"
+                        class="rounded-circle" alt="profile" />
+                    <h5 class="card-title">${user.name}</h5>
+                    <small class="card-subtitle">${user.bio ?? ''}</small>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">Repositories :
+                            <span class="fw-bold">${user.public_repos}</span>
+                        </li>
+                        <li class="list-group-item">Followers :
+                            <span class="fw-bold">${user.followers}</span>
+                        </li>
+                        <li class="list-group-item">Following :
+                            <span class="fw-bold">${user.following}</span>
+                        </li>
+                    </ul>
+    `;
+}
+
+function resultrepos(username) {
+    $.ajax({
+        method: "GET",
+        url: url + username + `/repos`,
+    }).done(data => {
+        showrepositories(data);
+    }).fail(err => console.log(err));
+}
+
+function showrepositories(repos) {
+    displaylist.innerHTML = "";
+    repos.forEach(repo => {
+        const li = `<li><a href=${repo.html_url} class="dropdown-item" target="_blank">${repo.name}</a></li>`;
+        displaylist.innerHTML += li;
+    });
 }
